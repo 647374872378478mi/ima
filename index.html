@@ -7,7 +7,7 @@
 <table>
 <tr>
 <td>
-<textarea rows="400" cols="110" id="copytext">
+<textarea rows="400" cols="110" class="copytext">
 </textarea>
 </td>
 
@@ -20,13 +20,13 @@
 
     <script>
         function copyText() {
-            var copyText = document.getElementById("copytext");
+            var copyText = document.getElementByClass("copytext");
             copyText.select();
             document.execCommand("copy");
             alert("テキストがコピーされました");
         },
         function pasteText() {
-            var pasteArea = document.getElementsById("copytext");
+            var pasteArea = document.getElementsByClass("copytext");
             pasteArea.focus();
             document.execCommand("paste");
             alert("テキストがコピーされました");
