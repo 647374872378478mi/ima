@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -12,6 +13,7 @@
 
 <td valign=top>
 <button onclick="copyText()" style="width: 100px; height: 40px; font-size: 16px;">コピー</button>
+<button onclick="pasteText()" style="width: 100px; height: 40px; font-size: 16px;">ペースト</button>
 </td>
 </tr>
 </table>
@@ -21,7 +23,13 @@
             var copyText = document.getElementById("copytext");
             copyText.select();
             document.execCommand("copy");
-            alert("テキストがコピーされました: " + copyText.value);
+            alert("テキストがコピーされました");
+        },
+        function pasteText() {
+            var pasteArea = document.getElementsById("copytext");
+            pasteArea.focus();
+            document.execCommand("paste");
+            alert("テキストがコピーされました");
         }
     </script>
 
