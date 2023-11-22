@@ -13,7 +13,6 @@
 
 <td valign=top>
 <button onclick="copyText()" style="width: 100px; height: 40px; font-size: 16px;">コピー</button>
-<button id="dwonload" style="width: 100px; height: 40px; font-size: 16px;">ダウンロード</button
 </td>
 </tr>
 </table>
@@ -25,20 +24,5 @@
             alert("テキストがコピーされました");
         }
 　　</script>
-   <script>
-       const downloadButton = document.getElementById('download');
-const myTextArea = document.getElementById('text');
-
-downloadButton.addEventListener('click', () => {
-  const text = myTextArea.value;
-  const blob = new Blob([text], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
-  const downloadLink = document.createElement('a');
-  downloadLink.href = url;
-  downloadLink.download = 'text.txt';
-  downloadLink.click();
-});
-       }
-   </script>
 </body>
 </html>
