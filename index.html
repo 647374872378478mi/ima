@@ -6,11 +6,10 @@
             <h1>$ FALIXY UUID GENN $</h1>
     <p>generat count : <span id="counter">0</span></p>
     <p>UUID : <span id="uuid"></span></p>
-    <input id="copyuuid" size=100></input>
     <div class="button_solid004">
       </div>
 
-      <a onclick="generateUUID()">gen</a>
+      <a onclick="generateUUID()">gen</a><br>
       <a onclick="copyText()">copy</a>
     <script>
         let count = 0;
@@ -37,13 +36,22 @@
             document.getElementById('copyuuid').textContent = newUUID;
         }
     </script>
-                <script>
-        function copyText() {
-            var copyText = document.getElementById("copyuuid");
-            copyText.select();
-            document.execCommand("copy");
-            alert("テキストがコピーされました: " + copyText.value);
-        }
-    </script>
+<script>
+function copy(){
+  //範囲を指定
+  let range = document.createRange();
+  let span = document.getElementById('uuid');
+  range.selectNodeContents(span);
+
+  //指定した範囲を選択状態にする
+  let selection = document.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  //コピー
+  document.execCommand('copy');
+  alert('コピーしました' + copyText.value);
+}
+</script>
 </body>
 </html>
