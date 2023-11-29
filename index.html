@@ -33,7 +33,6 @@
 
             // 生成されたUUIDを表示
             document.getElementById('uuid').textContent = newUUID;
-            document.getElementById('copyuuid').textContent = newUUID;
         }
     </script>
 <script>
@@ -44,7 +43,7 @@ function copy(){
   range.selectNodeContents(span);
 
   //指定した範囲を選択状態にする
-  let selection = document.getSelection();
+  let selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
 
