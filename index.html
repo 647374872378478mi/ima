@@ -10,7 +10,7 @@
       </div>
 
       <a onclick="generateUUID()">gen</a>
-      <a onclick="copytext()">copy</a>
+      <button onclick="copyText()" style="width: 100px; height: 40px; font-size: 16px;">copy</button>
     <script>
         let count = 0;
 
@@ -34,12 +34,14 @@
             // 生成されたUUIDを表示
             document.getElementById('uuid').textContent = newUUID;
         }
-       function copytext() {
-     var copyText = document.getElementById('uuid');
-     copyText.select();
-     document.execCommand('copy');
-     alert("テキストがコピーされました: " + copyText.value);
-     }
+    </script>
+                <script>
+        function copyText() {
+            var copyText = document.getElementById("uuid");
+            copyText.select();
+            document.execCommand("copy");
+            alert("テキストがコピーされました: " + copyText.value);
+        }
     </script>
 </body>
 </html>
