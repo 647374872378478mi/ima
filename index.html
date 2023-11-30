@@ -51,7 +51,11 @@ function copy(){
   alert('コピーしました');
 }
 </script>
-            <span id="rm">
+    </center>
+                <table>
+                        <tr>
+                                <td>
+            <p id="rm">
 {<br>
   "format_version": 1,<br>
   "header": {<br>
@@ -71,9 +75,13 @@ function copy(){
     }<br>
   ]<br>
 }<br>
-            </span>
+            </p>
+                                </td>
+                        </tr>
+                </table>
+        </div>
             <a onclick="mgen">manifest gen ¥Resource</a><br>
-            <a onclick="copyrm">copy</a>
+            <a onclick="copyR">copy</a>
                 <script>
         let count = 0;
 
@@ -96,21 +104,12 @@ function copy(){
         }
     </script>   
 <script>
-function copyrm(){
-  //範囲を指定
-  let range = document.createRange();
-  let span = document.getElementById('rm');
-  range.selectNodeContents(span);
-
-  //指定した範囲を選択状態にする
-  let selection = window.getSelection();
-  selection.removeAllRanges();
-  selection.addRange(range);
-
-  //コピー
-  document.execCommand('copy');
-  alert('コピーしました');
-}
+        function copyR() {
+            var copyText = document.getElementById("rm");
+            copyText.select();
+            document.execCommand("copy");
+            alert("テキストがコピーされました: " + copyText.value);
+        }
 </script>
 </body>
 </html>
