@@ -11,7 +11,8 @@
       <a onclick="generateUUID()">gen</a><br>
       <a onclick="copy()">copy</a><br>
     <script>
-        let count = 0;
+            while (true) {
+                    let count = 0;
 
         function generateUUID() {
             // UUIDを生成するための関数（簡略化されたもの）
@@ -22,7 +23,6 @@
                     return v.toString(16);
                 });
             }
-
             // UUIDを生成
             const newUUID = generateRandomUUID();
 
@@ -33,6 +33,7 @@
             // 生成されたUUIDを表示
             document.getElementById('uuid').textContent = newUUID;
         }
+            }
     </script>
 <script>
 function copy(){
