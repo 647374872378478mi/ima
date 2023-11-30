@@ -52,64 +52,6 @@ function copy(){
 }
 </script>
     </center>
-                <table>
-                        <tr>
-                                <td>
-            <p id="rm">
-{<br>
-  "format_version": 1,<br>
-  "header": {<br>
-    "description": "",<br>
-    "name": "",<br>
-    "uuid": "
-        <span id="muuid1"></span>  
-            ",<br>
-    "version": [0, 0, 1]<br>
-  },<br>
-  "modules": [<br>
-    {<br>
-      "description": "",<br>
-      "type": "resources",<br>
-      "uuid": "<span id="muuid2"></span>",<br>
-      "version": [0, 0, 1]<br>
-    }<br>
-  ]<br>
-}<br>
-            </p>
-                                </td>
-                        </tr>
-                </table>
         </div>
-            <a onclick="mgen">manifest gen ¥Resource</a><br>
-            <a onclick="copyR">copy</a>
-                <script>
-        let count = 0;
-
-        function mgen() {
-            // UUIDを生成するための関数（簡略化されたもの）
-            function generateRandomUUID() {
-                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                    var r = Math.random() * 16 | 0,
-                        v = c == 'x' ? r : (r & 0x3 | 0x8);
-                    return v.toString(16);
-                });
-            }
-
-            // UUIDを生成
-            const newUUID = generateRandomUUID();
-
-            // 生成されたUUIDを表示
-            document.getElementById('muuid1').textContent = newUUID;
-            document.getElementById('muuid2').textContent = newUUID;
-        }
-    </script>   
-<script>
-        function copyR() {
-            var copyText = document.getElementById("rm");
-            copyText.select();
-            document.execCommand("copy");
-            alert("テキストがコピーされました: " + copyText.value);
-        }
-</script>
 </body>
 </html>
