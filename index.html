@@ -57,21 +57,21 @@ function copy(){
   "header": {<br>
     "description": "",<br>
     "name": "",<br>
-    "uuid": "<span id="muuid"></span>",<br>
+    "uuid": "<span id="muuid1"></span>",<br>
     "version": [0, 0, 1]<br>
   },<br>
   "modules": [<br>
     {<br>
       "description": "",<br>
       "type": "resources",<br>
-      "uuid": "<span id="muuid"></span>",<br>
+      "uuid": "<span id="muuid2"></span>",<br>
       "version": [0, 0, 1]<br>
     }<br>
   ]<br>
 }<br>
             </p>
             <a onclick="M1generateUUID">manifest gen ¥Resource</a><br>
-            <a onclick="copy">copy</a>
+            <a onclick="copyrm">copy</a>
                 <script>
         let count = 0;
 
@@ -89,12 +89,13 @@ function copy(){
             const newUUID = generateRandomUUID();
 
             // 生成されたUUIDを表示
-            document.getElementById('muuid').textContent = newUUID;
+            document.getElementById('muuid1').textContent = newUUID;
+            document.getElementById('muuid2').textContent = newUUID;
         }
     </script>
     
 <script>
-function copy(){
+function copyrm(){
   //範囲を指定
   let range = document.createRange();
   let span = document.getElementById('rm');
