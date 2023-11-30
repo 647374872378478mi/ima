@@ -51,25 +51,29 @@ function copy(){
   alert('コピーしました');
 }
 </script>
-            <p id="rm">
+            <textarea id="rm" clos=80 rows=100 readonly>
 {<br>
   "format_version": 1,<br>
   "header": {<br>
     "description": "",<br>
     "name": "",<br>
-    "uuid": "<span id="muuid1"></span>",<br>
+    "uuid": "
+        <span id="muuid1"></span>  
+            ",<br>
     "version": [0, 0, 1]<br>
   },<br>
   "modules": [<br>
     {<br>
       "description": "",<br>
       "type": "resources",<br>
-      "uuid": "<span id="muuid2"></span>",<br>
+      "uuid": "
+                    <span id="muuid2"></span>
+              ",<br>
       "version": [0, 0, 1]<br>
     }<br>
   ]<br>
 }<br>
-            </p>
+            </textarea>
             <a onclick="M1generateUUID">manifest gen ¥Resource</a><br>
             <a onclick="copyrm">copy</a>
                 <script>
@@ -94,22 +98,20 @@ function copy(){
         }
     </script>
     
-<script>
-function copyrm(){
-  //範囲を指定
-  let range = document.createRange();
-  let span = document.getElementById('rm');
-  range.selectNodeContents(span);
+    <script>
+        function copyrm() {
+            // コピー対象をJavaScript上で変数として定義する
+            var copyText = document.getElementById("rm");
 
-  //指定した範囲を選択状態にする
-  let selection = window.getSelection();
-  selection.removeAllRanges();
-  selection.addRange(range);
+            // コピー対象のテキストを選択する
+            copyText.select();
 
-  //コピー
-  document.execCommand('copy');
-  alert('コピーしました');
-}
-</script>
+            // 選択しているテキストをクリップボードにコピーする
+            document.execCommand("Copy");
+
+            // コピーをお知らせする
+            alert("コピーできました！ : " + copyTarget.value);
+        }
+    </script>
 </body>
 </html>
