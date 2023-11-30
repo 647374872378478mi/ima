@@ -3,7 +3,6 @@
 <body>
         <div id="container">
     <center>
-            <h1>$ FALIXY UUID GENN $</h1>
     <p>generat count : <span id="counter">0</span></p>
     <p>UUID : <span id="uuid"></span></p>
     <div class="button_solid004">
@@ -40,6 +39,65 @@ function copy(){
   //範囲を指定
   let range = document.createRange();
   let span = document.getElementById('uuid');
+  range.selectNodeContents(span);
+
+  //指定した範囲を選択状態にする
+  let selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  //コピー
+  document.execCommand('copy');
+  alert('コピーしました');
+}
+</script>
+            <p id="rm">
+{<br>
+  "format_version": 1,<br>
+  "header": {<br>
+    "description": "",<br>
+    "name": "",<br>
+    "uuid": "<span id="muuid"></span>",<br>
+    "version": [0, 0, 1]<br>
+  },<br>
+  "modules": [<br>
+    {<br>
+      "description": "",<br>
+      "type": "resources",<br>
+      "uuid": "<span id="muuid"></span>",<br>
+      "version": [0, 0, 1]<br>
+    }<br>
+  ]<br>
+}<br>
+            </p>
+            <a onclick="M1generateUUID">manifest gen ¥Resource</a><br>
+            <a onclick="copy">copy</a>
+                <script>
+        let count = 0;
+
+        function M1generateUUID() {
+            // UUIDを生成するための関数（簡略化されたもの）
+            function generateRandomUUID() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    var r = Math.random() * 16 | 0,
+                        v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            }
+
+            // UUIDを生成
+            const newUUID = generateRandomUUID();
+
+            // 生成されたUUIDを表示
+            document.getElementById('muuid').textContent = newUUID;
+        }
+    </script>
+    
+<script>
+function copy(){
+  //範囲を指定
+  let range = document.createRange();
+  let span = document.getElementById('rm');
   range.selectNodeContents(span);
 
   //指定した範囲を選択状態にする
