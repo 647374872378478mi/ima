@@ -9,7 +9,7 @@
       </div>
 
       <a onclick="generateUUID()">gen</a><br>
-      <a onclick="copy()">copy</a>
+      <a onclick="copy()">copy</a><br>
     <script>
         let count = 0;
 
@@ -51,7 +51,7 @@ function copy(){
   alert('コピーしました');
 }
 </script>
-            <textarea id="rm" clos=80 rows=100 readonly>
+            <input id="rm" clos=80 rows=80 readonly>
 {<br>
   "format_version": 1,<br>
   "header": {<br>
@@ -73,7 +73,7 @@ function copy(){
     }<br>
   ]<br>
 }<br>
-            </textarea>
+            </input>
             <a onclick="M1generateUUID">manifest gen ¥Resource</a><br>
             <a onclick="copyrm">copy</a>
                 <script>
