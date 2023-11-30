@@ -51,7 +51,7 @@ function copy(){
   alert('コピーしました');
 }
 </script>
-            <input id="rm" clos=80 rows=80 readonly>
+            <span id="rm">
 {<br>
   "format_version": 1,<br>
   "header": {<br>
@@ -66,20 +66,18 @@ function copy(){
     {<br>
       "description": "",<br>
       "type": "resources",<br>
-      "uuid": "
-                    <span id="muuid2"></span>
-              ",<br>
+      "uuid": "<span id="muuid2"></span>",<br>
       "version": [0, 0, 1]<br>
     }<br>
   ]<br>
 }<br>
-            </input>
-            <a onclick="M1generateUUID">manifest gen ¥Resource</a><br>
+            </span>
+            <a onclick="mgen">manifest gen ¥Resource</a><br>
             <a onclick="copyrm">copy</a>
                 <script>
         let count = 0;
 
-        function M1generateUUID() {
+        function mgen() {
             // UUIDを生成するための関数（簡略化されたもの）
             function generateRandomUUID() {
                 return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -96,22 +94,23 @@ function copy(){
             document.getElementById('muuid1').textContent = newUUID;
             document.getElementById('muuid2').textContent = newUUID;
         }
-    </script>
-    
-    <script>
-        function copyrm() {
-            // コピー対象をJavaScript上で変数として定義する
-            var copyText = document.getElementById("rm");
+    </script>   
+<script>
+function copyrm(){
+  //範囲を指定
+  let range = document.createRange();
+  let span = document.getElementById('rm');
+  range.selectNodeContents(span);
 
-            // コピー対象のテキストを選択する
-            copyText.select();
+  //指定した範囲を選択状態にする
+  let selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
 
-            // 選択しているテキストをクリップボードにコピーする
-            document.execCommand("Copy");
-
-            // コピーをお知らせする
-            alert("コピーできました！ : " + copyTarget.value);
-        }
-    </script>
+  //コピー
+  document.execCommand('copy');
+  alert('コピーしました');
+}
+</script>
 </body>
 </html>
